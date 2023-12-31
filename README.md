@@ -8,14 +8,13 @@ Making a program that automates the certain processes that I require it to do:
 
 
 #### Requirements
-- Needs to have an interface(commandline or GUI) to take inputs from the user and execute functions that accomplish the one of the goals
-    - Aiming for a widget-based interface to be put up on the desktop and can be used whenever needed
+- Needs to have an interface to take inputs from the user and execute functions that accomplish the one of the goals
 - Needs to be able to run in the background and execute the functions at a particular time
 - Should be able to access file system in order to modify it
 
 #### Implementation
 - Language used: Python
-- Libraries used
+- Libraries used so far: `os`, `shutil`, `sys`
 - Brief explanation of the code
 
 #### Results & Observations

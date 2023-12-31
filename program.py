@@ -1,6 +1,6 @@
-"""For ending the program"""
+"""Imported modules/packages"""
 import sys
-# Importing libraries to navigate and manipulate files and folders
+# Libraries to navigate and manipulate files and folders
 import os
 import shutil
 
@@ -15,17 +15,6 @@ def navigate_directory(input):
     # Finding the current working directory
     current_path = os.getcwd()
     
-    # Changing directories based on the target_directory
-    if target_directory == "Screenshots":
-        current_path = os.chdir("C:\\Users\\User\\OneDrive\\Pictures\\Screenshots")
-    elif target_directory == "Downloads":
-        current_path = os.chdir("C:\\Users\\User\\Downloads")
-    elif target_directory == "OneDrive":
-        current_path = os.chdir("C:\\Users\\User\\OneDrive - CSULB")
-    else:
-        print("You did not enter a valid choice. Please try again.\n")
-        return menu()
-    
     return current_path
 
 
@@ -38,13 +27,19 @@ def organizing_files():
     folder_name = input("Choose the folder you want to organize: ")
     # Finding the current working directory path
     dir_path = navigate_directory(folder_name)
+    print("The current working directory is: ", dir_path)
+    pass
     
 
 def removing_files():
     """
     This function removes files from a folder after a specified time
     """
-    #TODO: Removing files from folder
+    # Asking user which folder they want to remove files from
+    folder_name = input("Choose the folder you want to remove files from: ")
+    # Finding the current working directory path
+    dir_path = navigate_directory(folder_name)
+    print("The current working directory is: ", dir_path)
     pass
 
 
@@ -52,7 +47,15 @@ def copying_files():
     """
     This function copies files from a folder to another folder
     """
-    #TODO: Copying files from folder
+    # Asking user which folder they want to copy files from
+    folder_name = input("Choose the folder you want to copy files from: ")
+    # Finding the current working directory path
+    dir_path = navigate_directory(folder_name)
+    # Asking user which folder they want to copy files to
+    folder_name = input("Choose the folder you want to copy files to: ")
+    # Finding the current working directory path
+    dir_path = navigate_directory(folder_name)
+    pass
 
 def menu():
     """

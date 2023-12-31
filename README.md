@@ -4,7 +4,7 @@
 Making a program that automates the certain processes that I require it to do:
 - Remove old files(specifically files and screenshots) from the asked folders
 - Categorize files into folders based on their type or extensions
-- Copy certain subfolders and files from a folder into another folder
+- Copy certain sub-folders and files from a folder into another folder
 
 
 #### Requirements

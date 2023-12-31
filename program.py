@@ -4,10 +4,6 @@ import sys
 import os
 import shutil
 
-
-# Aiming for the function to be able to navigate to the following directories:
-# C:\Users\User\OneDrive\Pictures\Screenshots
-# C:\Users\User\Downloads
 def navigate_directory(input):
     """
     This function navigates and changes to the directory entered by the user
@@ -24,6 +20,11 @@ def navigate_directory(input):
         current_path = os.chdir("C:\\Users\\User\\OneDrive\\Pictures\\Screenshots")
     elif target_directory == "Downloads":
         current_path = os.chdir("C:\\Users\\User\\Downloads")
+    elif target_directory == "OneDrive":
+        current_path = os.chdir("C:\\Users\\User\\OneDrive - CSULB")
+    else:
+        print("You did not enter a valid choice. Please try again.\n")
+        return menu()
     
     return current_path
 
@@ -33,7 +34,10 @@ def organizing_files():
     This function organizes files from a folder based on their extensions
     or file type
     """
-    #TODO: Organizing files from folder
+    # Asking user which folder they want to organize
+    folder_name = input("Choose the folder you want to organize: ")
+    # Finding the current working directory path
+    dir_path = navigate_directory(folder_name)
     
 
 def removing_files():
@@ -89,5 +93,4 @@ def menu():
 
 if __name__ == "__main__":
     # Welcome message, the menu screen and the user's choice
-    # menu()
-    navigate_directory("Screenshots")
+    menu()

@@ -4,17 +4,25 @@ import sys
 import os
 import shutil
 
+
 def navigate_directory(input):
     """
     This function navigates and changes to the directory entered by the user
     : param input: Directory chosen by the user
     : return: Newly set path of the directory
-    """ 
+    """
     # Setting the target directory
     target_directory = input
-    # Finding the current working directory
-    current_path = os.getcwd()
-    
+    # Setting the current path to a directory that will be a parent to a target directory
+    current_path = "C:\\Users\\User"
+
+    # Finding the target directory in the path
+    for root, dirs, files in os.walk(current_path): # Traverse the directory tree
+        # Checking if the target directory is in the current path
+        if target_directory in dirs:
+            # Setting the current path to the target directory
+            current_path = os.path.join(root, target_directory)
+
     return current_path
 
 
@@ -28,8 +36,7 @@ def organizing_files():
     # Finding the current working directory path
     dir_path = navigate_directory(folder_name)
     print("The current working directory is: ", dir_path)
-    pass
-    
+
 
 def removing_files():
     """
@@ -40,7 +47,6 @@ def removing_files():
     # Finding the current working directory path
     dir_path = navigate_directory(folder_name)
     print("The current working directory is: ", dir_path)
-    pass
 
 
 def copying_files():
@@ -55,7 +61,7 @@ def copying_files():
     folder_name = input("Choose the folder you want to copy files to: ")
     # Finding the current working directory path
     dir_path = navigate_directory(folder_name)
-    pass
+
 
 def menu():
     """
@@ -94,6 +100,8 @@ def menu():
         print("You did not enter a valid choice. Please try again.\n")
         menu()
 
+
 if __name__ == "__main__":
     # Welcome message, the menu screen and the user's choice
-    menu()
+    # menu()
+    navigate_directory("Downloads")

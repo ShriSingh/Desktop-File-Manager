@@ -5,19 +5,17 @@ import os
 import shutil
 
 
-def navigate_directory(input):
+def navigate_directory(target_directory):
     """
     This function navigates and changes to the directory entered by the user
-    : param input: Directory chosen by the user
+    : param target_directory: Directory chosen by the user
     : return: Newly set path of the directory
     """
-    # Setting the target directory
-    target_directory = input
     # Setting the current path to a directory that will be a parent to a target directory
     current_path = "C:\\Users\\User"
 
     # Finding the target directory in the path
-    for root, dirs, files in os.walk(current_path): # Traverse the directory tree
+    for root, dirs, files in os.walk(current_path):  # Traverse the directory tree
         # Checking if the target directory is in the current path
         if target_directory in dirs:
             # Setting the current path to the target directory
@@ -28,9 +26,10 @@ def navigate_directory(input):
 
 def organizing_files():
     """
-    This function organizes files from a folder based on their extensions
-    or file type
+    This function organizes files from a folder based on either their extension
+    or year of creation
     """
+    # TODO - Organize files based on their extensions
     # Asking user which folder they want to organize
     folder_name = input("Choose the folder you want to organize: ")
     # Finding the current working directory path
@@ -42,6 +41,7 @@ def removing_files():
     """
     This function removes files from a folder after a specified time
     """
+    # TODO - Remove files from a folder after a specified time
     # Asking user which folder they want to remove files from
     folder_name = input("Choose the folder you want to remove files from: ")
     # Finding the current working directory path
@@ -53,6 +53,7 @@ def copying_files():
     """
     This function copies files from a folder to another folder
     """
+    # TODO - Copy files from one folder to another
     # Asking user which folder they want to copy files from
     folder_name = input("Choose the folder you want to copy files from: ")
     # Finding the current working directory path
@@ -104,4 +105,4 @@ def menu():
 if __name__ == "__main__":
     # Welcome message, the menu screen and the user's choice
     # menu()
-    navigate_directory("Downloads")
+    navigate_directory("OneDrive - CSULB")

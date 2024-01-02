@@ -3,7 +3,7 @@
 #### Goals
 Making a program that automates the certain processes that I require it to do:
 - Remove old files(specifically files and screenshots) from the asked folders
-- Categorize files into folders based on their type or extensions
+- Categorize files into folders based on their file extensions or year of creation
 - Copy certain sub-folders and files from a folder into another folder
 
 

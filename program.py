@@ -24,18 +24,26 @@ def navigate_directory(target_directory):
     return current_path
 
 
-def organizing_files(filter_type):
+def organizing_files(choice, path):
     """
     This function organizes files from a folder based on either their extension
     or year of creation
     """
     # TODO - Organize files based on their extensions
     # Acting based on type of organization the user wants
-    if filter_type == 1:
+    if choice == 1:
         pass
-    elif filter_type == 2:
+    elif choice == 2:
         pass
 
+    pass
+
+
+def copying_files():
+    """
+    This function copies files from a folder to another folder
+    """
+    # TODO - Copy files from one folder to another
     pass
 
 
@@ -44,22 +52,5 @@ def removing_files():
     This function removes files from a folder after a specified time
     """
     # TODO - Remove files from a folder after a specified time
-    # Asking user which folder they want to remove files from
-    folder_name = input("Choose the folder you want to remove files from: ")
-    # Finding the current working directory path
-    dir_path = navigate_directory(folder_name)
+    pass
 
-
-def copying_files():
-    """
-    This function copies files from a folder to another folder
-    """
-    # TODO - Copy files from one folder to another
-    # Asking user which folder they want to copy files from
-    folder_name = input("Choose the folder you want to copy files from: ")
-    # Finding the current working directory path
-    dir_path = navigate_directory(folder_name)
-    # Asking user which folder they want to copy files to
-    folder_name = input("Choose the folder you want to copy files to: ")
-    # Finding the current working directory path
-    dir_path = navigate_directory(folder_name)

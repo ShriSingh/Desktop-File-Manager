@@ -15,12 +15,12 @@ def main_menu():
     print("***************************************************************\n")
 
     # Showing the Menu Screen
-    print("***************Menu****************")
+    print("-----------------Menu----------------")
     print("1. Organize files")
     print("2. Copy files")
     print("3. Remove files")
     print("4. Exit")
-    print("***********************************\n")
+    print("-------------------------------------\n")
 
     # Asking the user for their choice
     choice = input("Please enter your choice from the above menu: ")
@@ -54,16 +54,17 @@ def organizing_files_menu():
     dir_path = script.navigate_directory(folder_name)
 
     # Organizing Files Menu
-    print("***********Organize By***********")
+    print("-----------Organize By-----------")
     print("1. File Type")
     print("2. Time of Creation")
     print("3. Exit")
-    print("*********************************\n")
+    print("---------------------------------\n")
     # Find out how the user wants to organize the files in the given folder
     organizing_type = input(f"How would you like to organize the files {folder_name}(enter a number): ")
 
+    # Calling methods based on the user's choice
     if organizing_type in range(1, 3):
-        script.organizing_files(organizing_type)
+        script.organizing_files(organizing_type, dir_path)
     elif organizing_type == 3:
         main_menu()
     else:
@@ -71,12 +72,19 @@ def organizing_files_menu():
         organizing_files_menu()
 
 
-
 def copying_files_menu():
     """
     Sub-menu for copying files from one folder to another
     that calls methods from the script to do so
     """
+    # Asking user which folder they want to copy files from
+    folder_name_1 = input("Choose the folder you want to copy files from: ")
+    # Finding the current working directory path
+    from_folder = script.navigate_directory(folder_name_1)
+    # Asking user which folder they want to copy files to
+    folder_name_2 = input("Choose the folder you want to copy files to: ")
+    # Finding the current working directory path
+    to_folder = script.navigate_directory(folder_name_2)
     pass
 
 
@@ -85,4 +93,8 @@ def removing_files_menu():
     Sub-menu for removing files from a folder that calls
     methods from the script to do so
     """
+    # Asking user which folder they want to remove files from
+    folder_name = input("Choose the folder you want to remove files from: ")
+    # Finding the current working directory path
+    dir_path = script.navigate_directory(folder_name)
     pass

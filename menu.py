@@ -52,6 +52,10 @@ def organizing_files_menu():
     folder_name = input("Choose the folder you want to organize: ")
     # Finding the current working directory path
     dir_path = script.navigate_directory(folder_name)
+    # Checking if the folder asked by the user exists
+    if dir_path == "C:\\Users\\User":
+        print("The folder you entered does not exist. Please try again.\n")
+        organizing_files_menu()
 
     # Organizing Files Menu
     print("-----------Organize By-----------")
@@ -81,11 +85,16 @@ def copying_files_menu():
     folder_name_1 = input("Choose the folder you want to copy files from: ")
     # Finding the current working directory path
     from_folder = script.navigate_directory(folder_name_1)
+    # Checking if the folder asked by the user exists
+    if from_folder == "C:\\Users\\User":
+        print("The folder you entered cannot be copied from. Please try again.\n")
+        copying_files_menu()
+
     # Asking user which folder they want to copy files to
     folder_name_2 = input("Choose the folder you want to copy files to: ")
-    # Finding the current working directory path
-    to_folder = script.navigate_directory(folder_name_2)
-    pass
+
+    # Calling the method to copy files from one folder to another
+    script.copying_files(folder_name_1, folder_name_2)
 
 
 def removing_files_menu():
@@ -97,4 +106,14 @@ def removing_files_menu():
     folder_name = input("Choose the folder you want to remove files from: ")
     # Finding the current working directory path
     dir_path = script.navigate_directory(folder_name)
-    pass
+    # Checking if the folder asked by the user exists
+    if dir_path == "C:\\Users\\User":
+        print("The folder you entered cannot be copied from. Please try again.\n")
+        removing_files_menu()
+
+    # Calling the method to remove files from a folder
+    script.removing_files(dir_path)
+
+
+if __name__ == '__main__':
+    main_menu()

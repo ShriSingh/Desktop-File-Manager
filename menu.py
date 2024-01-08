@@ -69,6 +69,8 @@ def organizing_files_menu():
     # Calling methods based on the user's choice
     if organizing_type in range(1, 3):
         script.organizing_files(organizing_type, dir_path)
+        # Bring the user back to the organizing files menu
+        organizing_files_menu()
     elif organizing_type == 3:
         main_menu()
     else:

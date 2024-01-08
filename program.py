@@ -4,6 +4,7 @@ import os
 # Module to conduct high-level file operations
 import shutil
 from datetime import datetime
+import organize as method_call
 
 
 def navigate_directory(target_directory):
@@ -34,62 +35,19 @@ def organizing_files(choice, path):
     :param path: Path of the folder to be organized
     :return message: Message to be displayed to the user that the folder is organized
     """
-    # Acting based on type of organization the user wants
-    if choice == 1:  # Organizing by extension type
-        organize_by_extension(path)
-    elif choice == 2:  # Organizing by time of creation(year, month, day)
-        organize_by_time(path)
-
     # Getting the name of the folder to be organized
     folder_name = os.path.basename(path)
-    # Returning a message to the user that the folder is organized
-    message = f"The folder {folder_name} is organized."
+    # Initializing the message to be displayed to the user
+    message = ""
+
+    # Acting based on type of organization the user wants
+    if choice == 1:  # Organizing by extension type
+        message = method_call.organize_by_extension(path)
+    elif choice == 2:  # Organizing by time of creation(year, month, day)
+        message = method_call.organize_by_time(path)
+
     # Returning the message
     return message
-
-
-def organize_by_extension(path):
-    """
-    This function organizes files from a folder based on their extension
-    :param path: Takes the path of the folder to be organized
-    :return: None
-    """
-    # Get the list of files in the directory
-    file_list = os.listdir(path)
-
-    # Iterate through each file in the directory
-    for file_name in file_list:
-        file_extension = os.path.splitext(file_name)[1].lower()
-        # Creating a folder for the extensions if it doesn't exist
-        extension_folder = os.path.join(path, file_extension[1:])
-        os.makedirs(extension_folder, exist_ok=True)
-
-        # Moving the file to the folder
-        shutil.move(os.path.join(path, file_name), os.path.join(extension_folder, file_name))
-
-
-def organize_by_time(path):
-    """
-    This function organizes files from a folder based on their time of creation
-    :param path: Takes the path of the folder to be organized
-    :return: None
-    """
-    # Get the list of files in the directory
-    file_list = os.listdir(path)
-
-    # Iteration through each file in the directory
-    for file_name in file_list:
-        file_path = os.path.join(path, file_name)
-        # Getting the time of creation of the file
-        creation_time = os.path.getctime(file_path)
-        creation_date = datetime.fromtimestamp(creation_time).date()
-
-        # Creating a folder for the year if it doesn't exist
-        date_folder = os.path.join(path, str(creation_date.year), str(creation_date.month), str(creation_date.day))
-        os.makedirs(date_folder, exist_ok=True)
-
-        # Moving the file to the corresponding date folder
-        shutil.move(file_path, os.path.join(date_folder, file_name))
 
 
 def copying_files(from_path, to_path):
